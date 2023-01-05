@@ -21,6 +21,10 @@ class LoginPage extends Page {
 		return $('button[type="submit"]');
 	}
 
+	get forgotPassword() {
+		return $('a[href="/forgot-password"]');
+	}
+
 
 	// a method to encapsule automation code to interact with the page
 	// e.g. to login using username and password
