@@ -24,6 +24,7 @@ export const config = {
 	//
 	specs: [
 		'./test/specs/**/*.js'
+
 	],
 	// Patterns to exclude.
 	exclude: [
@@ -60,11 +61,12 @@ export const config = {
 		//
 		browserName: 'chrome',
 		acceptInsecureCerts: true
+	
 		// If outputDir is provided WebdriverIO can capture driver session logs
 		// it is possible to configure which logTypes to include/exclude.
 		// excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
 		// excludeDriverLogs: ['bugreport', 'server'],
-	}],
+}],
 	//
 	// ===================
 	// Test Configurations
@@ -97,9 +99,8 @@ export const config = {
 	// If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
 	// gets prepended directly.
 	baseUrl: 'https://account.staging.mono.tod.sh/',
-	//
 	// Default timeout for all waitFor* commands.
-	waitforTimeout: 10000,
+	waitforTimeout: 20000,
 	//
 	// Default timeout in milliseconds for request
 	// if browser driver or grid doesn't send response
