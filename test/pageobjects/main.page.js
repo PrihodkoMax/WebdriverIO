@@ -9,9 +9,7 @@ class MainPage extends Page {
 	/**
 	 * define selectors using getter methods
 	 */
-	get menuItemMyAccounts() {
-		return $('div h2');
-	}
+	get menuItemMyAccounts() { return $('div h2') }
 }
 
 export default new MainPage();
