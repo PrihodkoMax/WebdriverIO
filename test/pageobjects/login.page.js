@@ -21,6 +21,10 @@ class LoginPage extends Page {
 	get forgotPassword() {
 		return $('a[href="/forgot-password"]');
 	}
+
+	get statusCode(){
+		return $(Response.status.toBe(200));
+	}
 	// a method to encapsule automation code to interact with the page
 	// e.g. to login using username and password
 	
@@ -28,6 +32,7 @@ class LoginPage extends Page {
 		await this.inputUsername.setValue(username);
 		await this.inputPassword.setValue(password);
 		await this.btnSubmit.click();
+		await this.statusCode();
 	}
 	// overwrite specific options to adapt it to page object
 

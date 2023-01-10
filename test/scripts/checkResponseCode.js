@@ -18,6 +18,6 @@ function checkResponseStatusCode(statusCode) {
 
 }
 
-const responseCheck = checkResponseStatusCode();
+// const responseCheck = checkResponseStatusCode();
 
-export default responseCheck;
+export default checkResponseStatusCode;

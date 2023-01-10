@@ -1,4 +1,4 @@
-function generateMobileNumber() {
+function getRandomPhoneNumber() {
   
   // Start with a random country code
   let number = "+" + Math.floor(Math.random() * 100);
@@ -13,7 +13,6 @@ function generateMobileNumber() {
 
 }
 
-const randomPhoneNumber = generateMobileNumber()
-console.log(randomPhoneNumber)
+//console.log(getRandomPhoneNumber())
 
-export default randomPhoneNumber;
+export default getRandomPhoneNumber();
