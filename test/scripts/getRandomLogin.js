@@ -1,27 +1,29 @@
-
-    let login;
-    let password;
-
-function getRandomLogin(password, login) {
-
+  //Create param 
+    const stringUsername = 'userName_';
     const minLength = 6;
     const maxLength = 50;
-    const possibleCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}\\|;:\'",.<>/?';
-    const length = Math.floor(Math.random() * (maxLength - minLength + 1)) + minLength;
-    
+    const delate = 2;
+    const possibleCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const numberString = '0123456789';
+    const symbolString = '!@#$%^&*()_+-=[]{}\\|;:\'",.<>/?';
+  
+  //Create function that generate random login
+  function getRandomLogin(userLogin) {
+    let login = '';
+    let number = '';
+    let symbol = '';
+    const length = Math.floor(Math.random() * (maxLength - minLength) / delate );
     for (let i = 0; i < length; i++) {
       login += possibleCharacters.charAt(Math.floor(Math.random() * possibleCharacters.length));
+      number += numberString.charAt(Math.floor(Math.random() * numberString.length));
+      symbol += symbolString.charAt(Math.floor(Math.random() * symbolString.length));
+
     }
-    
-    for (let i = 0; i < length; i++) {
-        password += possibleCharacters.charAt(Math.floor(Math.random() * possibleCharacters.length));
-      }
 
-    return password, login;
-  
-}
+    return userLogin = stringUsername + login + number + symbol;
 
-  const randomLogin = getRandomLogin();
-  console.log(randomLogin)
+  }
 
-export default randomLogin;
+// console.log(getRandomLogin())
+
+export default getRandomLogin();

@@ -5,7 +5,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function generateRandomString(length) {
+function getRandomString(length) {
   let result = "";
   
   for (let i = 0; i < length; i++) {
@@ -15,14 +15,13 @@ function generateRandomString(length) {
   return result;
 }
 
-function generateRandomEmail() {
-  const username = generateRandomString(getRandomInt(3, 5));
-  const domainName = generateRandomString(getRandomInt(3, 5));
+function getRandomEmail() {
+  const username = getRandomString(getRandomInt(3, 5));
+  const randdomain = getRandomString(getRandomInt(3, 5));
   
-  return `${username}.${domainName}@${domain[getRandomInt(0, domain.length - 1)]}`;
+  return `${username}.${randdomain}@${domain[getRandomInt(0, domain.length - 1)]}`;
 }
 
-const randomEmail = generateRandomEmail();
-console.log(randomEmail);
+// console.log(getRandomEmail())
 
-export default randomEmail;
+export default getRandomEmail();

@@ -1,20 +1,8 @@
-function getRandomName(names) {
-    
-    // testnames is an array of strings
-     const index = Math.floor(Math.random() * names.length);
-     return names[index];
 
-}
+const minLength = 3;
+const maxLength = 50;
 
-function getRandomLastName(lastNames) {
-
-    const index = Math.floor(Math.random() * lastNames.length);
-    return lastNames[index];
-  
-}
-
-// Example usage:
-const names = [ 'Emm', 'Ava', 'Sophia',
+const firstName = [ 'Emm', 'Ava', 'Sophia',
 'Mia',
 'Charlotte',
 'Amelia',
@@ -134,7 +122,7 @@ const names = [ 'Emm', 'Ava', 'Sophia',
 'Jackson',
 'White'
 ];
-const lastNames = [
+const lastName = [
     'Smith',
     'Johnson',
     'Williams',
@@ -185,17 +173,24 @@ const lastNames = [
     'Sanchez',
     'Morris',
     'Rogers',
-    'Reed',
-    'Cook',
-    'Morgan',
-    'Bell'
-];
+    'Reed','Cook','Morgan','Bell'];
+
+function getRandomFirstName() {
+    // testnames is an array of strings
+     let length = Math.floor(Math.random() * (maxLength - minLength) + minLength);
+     const index = Math.floor(Math.random() * firstName.length);
+     return firstName[index];
+
+}
+
+function getRandomLastName() {
+    // testnames is an array of strings
+    let length = Math.floor(Math.random() * (maxLength - minLength) + minLength);
+    const index = Math.floor(Math.random() * lastName.length);
+    return lastName[index];
   
+}
 
-const userName = getRandomName(names);
-const userLastName = getRandomLastName(lastNames);
-const userName_LastName = userName + ' ' + userLastName;
+//console.log(getRandomLastName(),getRandomFirstName());
 
-console.log(userName, userLastName); // Outputs a random name from the array
-
-export default  userName; userLastName 
+export default getRandomFirstName(); getRandomLastName(); 
