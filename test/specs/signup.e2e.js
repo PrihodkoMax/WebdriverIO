@@ -1,26 +1,30 @@
 import SignUpPage from "../pageobjects/signup.page.js";
 
-describe('Testing SignUp page functionality', () => {
+describe('Checking the presence of elements on the registration page', () => {
 
-	it('Доступны все поля формы', async () => {
+	it('Displaying a form with the correct name', async () => {
 		await SignUpPage.open();
 
-		await expect(SignUpPage.inputRegisterEmail).toBeDisplayed();
-		await expect(SignUpPage.inputRegisterTel).toBeDisplayed();
-		await expect(SignUpPage.inputRegisterUsername).toBeDisplayed();
-		await expect(SignUpPage.inputRegisterPassword).toBeDisplayed();
-		await expect(SignUpPage.inputRegisterPasswordConfm).toBeDisplayed();
-		await expect(SignUpPage.privacyLabel).toBeDisplayed();
-
+		await expect(SignUpPage.registerForm).toBeDisplayed();
+		const registerFormTitle = await $('form h3');
+		await expect(registerFormTitle).toHaveText('Начните использование FuncWallet');
 	});
 
-	// Не рабочий функционал!
+	it('Displaying five input fields', async () => {
+		const inputFields = await $$('form div.jss31');
+		await expect(inputFields).toBeElementsArrayOfSize(5);
+	});
 
-	// it('Регистрация с валидными данными', () => {
-	// 	SignUpPage.open();
-	// 	SignUpPage.signUp('m.prykhodko+01auto@deltafunc.com',
-	// 		'+15056673998', 'maxtest', 'Test#01');
+	it('Displaying disabled policy checkbox and ability to check it', async () => {
+		const policyCheckbox = await $('span[aria-disabled="false"]');
+		await expect(policyCheckbox).toBeDisplayed();
 
-	// 	expect($('//*/h3[contains(text(), "+ 15056673998")]')).toBeDisplayed();
-	// });
+		await policyCheckbox.click();
+		await expect(policyCheckbox).toHaveElementClass('Mui-checked');
+	});
+
+	// 	await expect($('//span[contains(text(), "Поле обязательно к заполнению")]')).toBeDisplayed();
+	// 	// await expect($('//p[contains(text(), "Поле обязательно к заполнению")]')).toBeDisplayed();
+
 });
+

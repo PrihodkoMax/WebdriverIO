@@ -2,6 +2,10 @@ import Page from "./page.js";
 
 class SignUpPage extends Page {
 
+	get registerForm() {
+		return $('form.jss29');
+	}
+
 	get inputRegisterEmail() {
 		return $('input[name="email"]');
 	}
@@ -23,16 +27,16 @@ class SignUpPage extends Page {
 	}
 
 	get privacyLabel() {
-		return $('//*[@id="app"]/div[2]/div[2]/form/label');
+		return $('input[name="agreeWithPrivacy"]');
 	}
 
 	get btnRegisterSubmit() {
 		return $('button[type="submit"]');
 	}
 
-	get btnEnter() {
-		return $('//*[@id="app"]/div[2]/div[1]/div/a/button');
-	}
+	// get btnEnter() {
+	// 	return $('//*[@id="app"]/div[2]/div[1]/div/a/button');
+	// }
 
 	async signUp(email, tel, username, password) {
 		await this.inputRegisterEmail.setValue(email);
@@ -41,7 +45,7 @@ class SignUpPage extends Page {
 		await this.inputRegisterPassword.setValue(password);
 		await this.inputRegisterPasswordConfm.setValue(password);
 		await this.privacyLabel.click();
-		await this.btnRegisterSubmit.click();
+		// await this.btnRegisterSubmit.click();
 	}
 
 	open() {
