@@ -61,12 +61,12 @@ export const config = {
 		//
 		browserName: 'chrome',
 		acceptInsecureCerts: true
-	
+
 		// If outputDir is provided WebdriverIO can capture driver session logs
 		// it is possible to configure which logTypes to include/exclude.
 		// excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
 		// excludeDriverLogs: ['bugreport', 'server'],
-}],
+	}],
 	//
 	// ===================
 	// Test Configurations
@@ -74,7 +74,7 @@ export const config = {
 	// Define all options that are relevant for the WebdriverIO instance here
 	//
 	// Level of logging verbosity: trace | debug | info | warn | error | silent
-	logLevel: 'info',
+	logLevel: 'warn',
 	//
 	// Set specific log levels per logger
 	// loggers:

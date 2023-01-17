@@ -1,4 +1,5 @@
 import SignUpPage from "../pageobjects/signup.page.js";
+import resources from "../resources/index.js";
 
 describe('Checking the presence of elements on the registration page', () => {
 
@@ -7,7 +8,7 @@ describe('Checking the presence of elements on the registration page', () => {
 
 		await expect(SignUpPage.registerForm).toBeDisplayed();
 		const registerFormTitle = await $('form h3');
-		await expect(registerFormTitle).toHaveText('Начните использование FuncWallet');
+		await expect(registerFormTitle).toHaveText(resources.signUpFormTitle);
 	});
 
 	it('Displaying five input fields', async () => {
@@ -23,8 +24,8 @@ describe('Checking the presence of elements on the registration page', () => {
 		await expect(policyCheckbox).toHaveElementClass('Mui-checked');
 	});
 
-	// 	await expect($('//span[contains(text(), "Поле обязательно к заполнению")]')).toBeDisplayed();
-	// 	// await expect($('//p[contains(text(), "Поле обязательно к заполнению")]')).toBeDisplayed();
+	// await expect($('//span[contains(text(), "Поле обязательно к заполнению")]')).toBeDisplayed();
+	// await expect($('//p[contains(text(), "Поле обязательно к заполнению")]')).toBeDisplayed();
 
 });
 
