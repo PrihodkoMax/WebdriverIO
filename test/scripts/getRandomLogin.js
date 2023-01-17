@@ -2,7 +2,7 @@
     const stringUsername = 'userName_';
     const minLength = 6;
     const maxLength = 50;
-    const delate = 2;
+    const delate = 3;
     const possibleCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     const numberString = '0123456789';
     const symbolString = '!@#$%^&*()_+-=[]{}\\|;:\'",.<>/?';
@@ -24,6 +24,6 @@
 
   }
 
-// console.log(getRandomLogin())
+console.log(getRandomLogin())
 
 export default getRandomLogin();

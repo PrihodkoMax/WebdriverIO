@@ -2,7 +2,7 @@
     const stringPassword = 'userPassword_';
     const minLength = 6;
     const maxLength = 50;
-    const delate = 2;
+    const delate = 4;
     const possibleCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     const numberString = '0123456789';
     const symbolString = '!@#$%^&*()_+-=[]{}\\|;:\'",.<>/?';
@@ -22,7 +22,6 @@
     return userPassword = stringPassword + (password + number + symbol);
   
 }
-
-//console.log(getRandomPassword())
+console.log(getRandomPassword())
 
 export default getRandomPassword();

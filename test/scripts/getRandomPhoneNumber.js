@@ -8,11 +8,8 @@ function getRandomPhoneNumber() {
     number += Math.floor(Math.random() * 10);
   
   }
-
   return number;
-
 }
 
-//console.log(getRandomPhoneNumber())
-
+console.log(getRandomPhoneNumber())
 export default getRandomPhoneNumber();

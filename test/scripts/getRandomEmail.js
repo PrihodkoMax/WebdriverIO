@@ -22,6 +22,6 @@ function getRandomEmail() {
   return `${username}.${randdomain}@${domain[getRandomInt(0, domain.length - 1)]}`;
 }
 
-// console.log(getRandomEmail())
+console.log(getRandomEmail())
 
 export default getRandomEmail();

@@ -191,6 +191,6 @@ function getRandomLastName() {
   
 }
 
-//console.log(getRandomLastName(),getRandomFirstName());
+console.log(getRandomLastName(),getRandomFirstName());
 
 export default getRandomFirstName(); getRandomLastName(); 
