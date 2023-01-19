@@ -14,7 +14,18 @@ class ForgotPasswordPage extends Page {
 	get inputEmailError() { return $('//*[@id="app"]/div[2]/div[2]/form/div/div[2]/p') };
 	get submitBtn() { return $('button[type="submit"]') };
 	get backBtn() { return $('//*[@id="app"]/div[2]/div[1]/button') };
+	get codeEnterForm() { return $('//*[@id="app"]/div[3]/div[2]/form') };
+	get closeCodeEnterFormBtn() { return $('svg[width="14"]') };
+	get inputOtpCode() { return $('input[name="code"]') };
+	get inputOtpCodeError() { return $('//*[@id="app"]/div[3]/div[2]/form/div[1]/p') };
+	get submitOtpCodeBtn() { return $('//*[@id="app"]/div[3]/div[2]/form/button') };
 
+	async recoverPassbyTel(tel, code) {
+		await this.inputTel.setValue(tel);
+		await this.submitBtn.click();
+		await this.inputOtpCode.addValue(code);
+		await this.submitOtpCodeBtn.click();
+	}
 }
 
 export default new ForgotPasswordPage();
