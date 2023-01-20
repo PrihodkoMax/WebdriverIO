@@ -1,14 +1,22 @@
 <<<<<<< HEAD:client/pages/login.page.js
 
 =======
+<<<<<<< HEAD
 >>>>>>> 8e7a2b56a70b441fc299ed3542121d44c4ed759f:test/pageobjects/login.page.js
+=======
+>>>>>>> 91616c740514a5da406f9c7ef6f173ffaced5d91:test/pageobjects/login.page.js
+>>>>>>> master
 import Page from './page.js';
 import axios from 'axios';
 
 <<<<<<< HEAD:client/pages/login.page.js
 =======
 
+<<<<<<< HEAD
 >>>>>>> 8e7a2b56a70b441fc299ed3542121d44c4ed759f:test/pageobjects/login.page.js
+=======
+>>>>>>> 91616c740514a5da406f9c7ef6f173ffaced5d91:test/pageobjects/login.page.js
+>>>>>>> master
 class LoginPage extends Page {
 
 	get inputUsername() {
@@ -38,7 +46,11 @@ class LoginPage extends Page {
 	get logoImageBtn(){
 		return $('a[href="/login"]');
 	}
+<<<<<<< HEAD
 >>>>>>> 8e7a2b56a70b441fc299ed3542121d44c4ed759f:test/pageobjects/login.page.js
+=======
+>>>>>>> 91616c740514a5da406f9c7ef6f173ffaced5d91:test/pageobjects/login.page.js
+>>>>>>> master
 
 	async login(username, password) { // метод инкапсуляции кода автоматизации для взаимодействия со страницей
 		await this.inputUsername.setValue(username);

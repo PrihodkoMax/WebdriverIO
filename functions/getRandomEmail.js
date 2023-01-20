@@ -44,4 +44,8 @@ function getRandomEmail() {
 }
 //console.log(getRandomEmail())
 export default getRandomEmail();
+<<<<<<< HEAD
 >>>>>>> 8e7a2b56a70b441fc299ed3542121d44c4ed759f
+=======
+>>>>>>> 91616c740514a5da406f9c7ef6f173ffaced5d91
+>>>>>>> master
