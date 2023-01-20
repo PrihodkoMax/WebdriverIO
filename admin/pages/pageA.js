@@ -1,4 +1,3 @@
-
 // main page object containing all methods, selectors and functionality
 // that is shared across all page objects
 
@@ -8,6 +7,6 @@ export default class Page {
 	* @param path path of the sub page (e.g. /path/to/page.html)
 	*/
 	open(path) {
-		return browser.url(`https://account.staging.mono.tod.sh/${path}`);
+		return browser.url(`https://front-admin.staging.mono.tod.sh/${path}`);
 	}
 }

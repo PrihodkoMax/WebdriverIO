@@ -1,6 +1,7 @@
-import LoginPage from '../pageobjects/login.page.js';
+import LoginPage from '../pages/login.page.js';
 
 describe("Forgot password", () => {
+	
 	it("Forgot password modal window displayed", async () => {
 
 		await LoginPage.open();

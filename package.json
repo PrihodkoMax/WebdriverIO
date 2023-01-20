@@ -7,9 +7,14 @@
     "@wdio/mocha-framework": "^8.0.11",
     "@wdio/spec-reporter": "^8.0.11",
     "chromedriver": "^108.0.0",
+    "jest": "^29.3.1",
     "wdio-chromedriver-service": "^8.0.1"
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js"
+  },
+  "dependencies": {
+    "axios": "^1.2.2",
+    "xhr-request": "^1.1.0"
   }
 }
