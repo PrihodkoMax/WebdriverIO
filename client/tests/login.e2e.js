@@ -1,5 +1,5 @@
-import LoginPage from '../pageobjects/login.page.js';
-import MainPage from '../pageobjects/main.page.js';
+import LoginPage from '../pages/login.page.js';
+import MainPage from '../pages/main.page.js';
 import Login from '../../functions/getAuth.js';
 import getRandomString from '../../functions/getRandomString.js';
 

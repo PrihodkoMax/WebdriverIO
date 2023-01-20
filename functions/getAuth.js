@@ -28,16 +28,17 @@ await Login();
 const service = axios.create({
   timeout: 20000 // request timeout
 });
-// request interceptor
-service.interceptors.request.use(
+
+service.interceptors.request.use( // request interceptor
   config => {
-// Do something before request is sent
-  config.headers = {'Authorization': `bearer ${token}`}
+
+  config.headers = {'Authorization': `bearer ${token}`} // Do something before request is sent
   return config;
   },
   error => {
   Promise.reject(error);
   }
 );
+
 axios.defaults.headers.common = {'Authorization': `bearer ${token}`};
 export default { axios, Login };

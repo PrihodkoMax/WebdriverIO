@@ -1,4 +1,4 @@
-import Page from './pageA.js';
+import Page from '../pageA.js';
 
 /**
  * sub page containing specific selectors and methods for a specific page

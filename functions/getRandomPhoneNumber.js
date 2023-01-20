@@ -7,7 +7,7 @@ function getRandomUaPhoneNumber() { // Велика і непереможна д
   return countryCode + mobileOperatorCode + localNumber;
 }
 //console.log(getRandomUaPhoneNumber());
-/*--------------------------------------*/
+
 function getRandomUsaPhoneNumber() { // США
   let countryCodes = ["+1"]; 
   let mobileOperatorCodes = ["810", "829"]; 
@@ -17,7 +17,7 @@ function getRandomUsaPhoneNumber() { // США
   return countryCode + mobileOperatorCode + localNumber;
 }
 //console.log(getRandomUsaPhoneNumber());
-/*--------------------------------------*/
+
 function getRandomEngPhoneNumber() { // К. Британии
   let countryCodes = ["+44"]; 
   let mobileOperatorCodes = ["743", "075","737"]; 
@@ -27,7 +27,6 @@ function getRandomEngPhoneNumber() { // К. Британии
   return countryCode + mobileOperatorCode + localNumber;
 }
 //console.log(getRandomEngPhoneNumber());
-/*--------------------------------------*/
 function getRandomNedPhoneNumber() { // К. Нидерландов
   let countryCodes = ["+31"]; 
   let mobileOperatorCodes = ["649","620"]; 
@@ -37,7 +36,7 @@ function getRandomNedPhoneNumber() { // К. Нидерландов
   return countryCode + mobileOperatorCode + localNumber;
 }
 //console.log(getRandomNedPhoneNumber());
-/*--------------------------------------*/
+
 function getRandomGerPhoneNumber() { // Германия
   let countryCodes = ["+49"]; 
   let mobileOperatorCodes = ["152","174"]; 
@@ -47,7 +46,7 @@ function getRandomGerPhoneNumber() { // Германия
   return countryCode + mobileOperatorCode + localNumber;
 }
 //console.log(getRandomGerPhoneNumber());
-/*--------------------------------------*/
+
 function getRandomPhoneNumber() { // Генерирует один случайный номер из массива функций. 
   const phoneNumberFunctions = [
     getRandomUaPhoneNumber(),
@@ -59,7 +58,6 @@ function getRandomPhoneNumber() { // Генерирует один случай�
   const randomFunc = phoneNumberFunctions[Math.floor(Math.random() * phoneNumberFunctions.length)];
   return randomFunc;
 }
-/*--------------------------------------*/
-//console.log(getRandomPhoneNumber());
 
+//console.log(getRandomPhoneNumber());
 export default getRandomPhoneNumber;getRandomUaPhoneNumber;getRandomUsaPhoneNumber;getRandomEngPhoneNumber;getRandomNedPhoneNumber;getRandomGerPhoneNumber;

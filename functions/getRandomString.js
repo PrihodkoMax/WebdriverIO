@@ -1,5 +1,4 @@
-// Создаем функцию которая возвращает значение (string) в пределах передаваемой минимальной / максимальной длины.
-function getRandomString(minLength, maxLength) {
+function getRandomString(minLength, maxLength) { // Создаем функцию которая возвращает значение (string) в пределах передаваемой минимальной / максимальной длины.
     const stringUsername = '';
     const possibleCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'+'0123456789'+'!"#$%&'+'()*+,-./:;<=>?@'+'['+'\''+']^'+'_'+'`{|}~';
     let abc = '';
