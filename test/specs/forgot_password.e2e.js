@@ -1,7 +1,7 @@
 import LoginPage from '../pageobjects/login.page.js';
 import ForgotPasswordPage from '../pageobjects/forgot_password.page.js';
 import resources from '../resources/index.js';
-import { generateRandomPhoneNumber } from '../utilities/helper.js';
+import { phoneNumbers } from '../utilities/helper.js';
 
 describe("*Элементы на странице Востановление пароля", () => {
 
@@ -64,7 +64,7 @@ describe('*Востановление пароля - негативные кей
 	})
 
 	it('Отображение ошибки после ввода кода (не валидный номер пользователя)', async () => {
-		await ForgotPasswordPage.recoverPassbyTel(generateRandomPhoneNumber(), resources.otpCodeForPassRecoverByTel);
+		await ForgotPasswordPage.recoverPassbyTel(phoneNumbers.getRandomUaPhoneNumber().slice(4), resources.otpCodeForPassRecoverByTel);
 		await expect(ForgotPasswordPage.inputOtpCodeError).toBeDisplayed();
 		await expect(ForgotPasswordPage.inputOtpCodeError).toHaveText(resources.invalidCodeError);
 	});
@@ -79,9 +79,10 @@ describe('*Востановление пароля - негативные кей
 	it('Отображение ошибки после ввода кода < 6 символов', async () => {
 		await ForgotPasswordPage.closeCodeEnterFormBtn.click();
 		await ForgotPasswordPage.submitBtn.click();
-		await ForgotPasswordPage.inputOtpCode.addValue(generateRandomPhoneNumber(2));
+		await ForgotPasswordPage.inputOtpCode.addValue(phoneNumbers.getRandomUaPhoneNumber().slice(8));
 		await ForgotPasswordPage.submitOtpCodeBtn.click();
 		await expect(ForgotPasswordPage.inputOtpCodeError).toHaveText(resources.invalidLengthCodeError);
 	});
 
 });
+
