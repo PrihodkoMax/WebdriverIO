@@ -1,4 +1,3 @@
-
 const minLength = 3;
 const maxLength = 50;
 
@@ -174,23 +173,18 @@ const lastName = [
     'Morris',
     'Rogers',
     'Reed','Cook','Morgan','Bell'];
-
-function getRandomFirstName() {
-    // testnames is an array of strings
+function getRandomFirstName() {  // testnames is an array of strings
      let length = Math.floor(Math.random() * (maxLength - minLength) + minLength);
      const index = Math.floor(Math.random() * firstName.length);
      return firstName[index];
 
 }
-
-function getRandomLastName() {
-    // testnames is an array of strings
+function getRandomLastName() {  // testnames is an array of strings
     let length = Math.floor(Math.random() * (maxLength - minLength) + minLength);
     const index = Math.floor(Math.random() * lastName.length);
     return lastName[index];
   
 }
 
-console.log(getRandomLastName(),getRandomFirstName());
-
+//console.log(getRandomLastName(),getRandomFirstName());
 export default getRandomFirstName(); getRandomLastName(); 

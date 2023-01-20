@@ -5,6 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Attach to firefox",
+            "request": "attach",
+            "type": "firefox",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
             "name": "Attach to Chrome",
             "port": 9222,
             "request": "attach",
@@ -12,13 +18,7 @@
             "webRoot": "${workspaceFolder}"
         },
         
-        {
-            "type": "firefox",
-            "request": "launch",
-            "reAttach": true,
-            "name": "Launch add-on",
-            "addonPath": "${workspaceFolder}"
-        }
+       
 
     ]
 }
