@@ -1,4 +1,4 @@
-import LoginPage from '../pageobjects/login.page.js';
+import LoginPage from '../pages/login.page.js';
 
 describe("Forgot password", () => {
 	
