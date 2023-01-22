@@ -1,5 +1,5 @@
 import LoginPage from '../pages/loginA.page.js';
-import MainPage from '../pages/mainA.page.js.js';
+import MainPage from '../pages/mainA.page.js';
 
 describe("My LoginA application", () => {
 	it("Should login with valid credentials", async () => {
