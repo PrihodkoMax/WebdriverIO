@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let domain = ["google.com", "meta.ua", "icloud.com", "yandex.ru",],
 	symbols = "qwertyuiopasdfghjklzxcvbnm1234567890";
 
@@ -23,25 +22,3 @@ let randomEmail = getEmail();
 
 console.log(randomEmail);
 export default randomEmail;
-=======
-const domain = ["google.com", "meta.ua", "icloud.com", "yandex.ru"];
-const symbols = "qwertyuiopasdfghjklzxcvbnm1234567890";
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-function getRandomString(length) {
-  let result = "";
-  for (let i = 0; i < length; i++) {
-    result += symbols[getRandomInt(0, symbols.length - 1)];
-  }
-  return result;
-}
-function getRandomEmail() {
-  const username = getRandomString(getRandomInt(3, 5));
-  const randdomain = getRandomString(getRandomInt(3, 5));
-  return `${username}.${randdomain}@${domain[getRandomInt(0, domain.length - 1)]}`;
-}
-//console.log(getRandomEmail())
-export default getRandomEmail();
->>>>>>> 91616c740514a5da406f9c7ef6f173ffaced5d91
