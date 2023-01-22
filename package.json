@@ -1,21 +1,22 @@
 {
-  "name": "my-new-project",
-  "type": "module",
-  "devDependencies": {
-    "@wdio/allure-reporter": "^8.2.0",
-    "@wdio/cli": "^8.0.12",
-    "@wdio/local-runner": "^8.0.12",
-    "@wdio/mocha-framework": "^8.0.11",
-    "@wdio/spec-reporter": "^8.0.11",
-    "chromedriver": "^108.0.0",
-    "jest": "^29.3.1",
-    "wdio-chromedriver-service": "^8.0.1",
-    "wdio-wait-for": "^3.0.1"
-  },
-  "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
-  },
-  "dependencies": {
-    "axios": "^1.2.3"
-  }
+	"name": "my-new-project",
+	"type": "module",
+	"devDependencies": {
+		"@wdio/allure-reporter": "^8.2.0",
+		"@wdio/cli": "^8.0.12",
+		"@wdio/local-runner": "^8.0.12",
+		"@wdio/mocha-framework": "^8.0.11",
+		"@wdio/spec-reporter": "^8.0.11",
+		"chromedriver": "^108.0.0",
+		"jest": "^29.3.1",
+		"wdio-chromedriver-service": "^8.0.1",
+		"wdio-wait-for": "^3.0.1"
+	},
+	"scripts": {
+		"wdio": "wdio run ./wdio.conf.js"
+	},
+	"dependencies": {
+		"axios": "^1.2.3",
+		"xhr-request": "^1.1.0"
+	}
 }

@@ -1,6 +1,5 @@
-
 import Page from './page.js';
-
+import axios from 'axios';
 class LoginPage extends Page {
 
 	get inputUsername() {
@@ -19,24 +18,25 @@ class LoginPage extends Page {
 		return $('a[href="/forgot-password"]');
 	}
 
+	get statusCode() {
+		return axios.get(this.LoginPage).then(response => response.status);
+	}
 	get loginForm() { return $('//*[@id="app"]//form') };
+
 	get loginFormTitle() { return $('//*[@id="app"]//form/h3') };
 
-	// a method to encapsule automation code to interact with the page
-	// e.g. to login using username and password
+	get logoImageBtn() {
+		return $('a[href="/login"]');
+	}
 
-	async login(username, password) {
+	async login(username, password) { // метод инкапсуляции кода автоматизации для взаимодействия со страницей
 		await this.inputUsername.setValue(username);
 		await this.inputPassword.setValue(password);
 		await this.btnSubmit.click();
 	}
 
-
-	// overwrite specific options to adapt it to page object
-
 	open() {
 		return super.open('login');
 	}
 }
-
 export default new LoginPage();

@@ -1,10 +1,6 @@
-
-
 import Page from './pageA.js';
 
-
 // sub page containing specific selectors and methods for a specific page
-
 class LoginPage extends Page {
 
 	// define selectors using getter methods
@@ -29,7 +25,6 @@ class LoginPage extends Page {
 		await this.inputPassword.setValue(password);
 		await this.btnSubmit.click();
 	}
-
 
 	// overwrite specific options to adapt it to page object
 
