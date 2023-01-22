@@ -16,6 +16,7 @@
 		"wdio": "wdio run ./wdio.conf.js"
 	},
 	"dependencies": {
+		"allure-commandline": "^2.20.1",
 		"axios": "^1.2.3",
 		"xhr-request": "^1.1.0"
 	}
