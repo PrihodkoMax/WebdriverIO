@@ -1,7 +1,9 @@
 import LoginPage from '../pages/login.page.js';
 import ForgotPasswordPage from '../pages/forgot_password.page.js';
 import resources from '../resources/text.js';
-import { phoneNumbers } from '../../functions/helper.js';
+import { phoneNumbers, randomStrings } from '../../functions/helper.js';
+import randomEmail from '../../functions/getRandomEmail.js';
+import AllureReporter from '@wdio/allure-reporter';
 
 describe("*Элементы на странице Востановление пароля", () => {
 
@@ -84,5 +86,55 @@ describe('*Востановление пароля - негативные кей
 		await expect(ForgotPasswordPage.inputOtpCodeError).toHaveText(resources.invalidLengthCodeError);
 	});
 
+	it('Отображение ошибки после не ввода email', async () => {
+		await ForgotPasswordPage.closeCodeEnterFormBtn.click();
+		await ForgotPasswordPage.radioBtnEmail.click();
+		await ForgotPasswordPage.submitBtn.click();
+		await expect(ForgotPasswordPage.inputEmailError).toHaveText(resources.requiredFieldError);
+	});
+
+	it('Отображение ошибки после ввода не валидного email', async () => {
+		await ForgotPasswordPage.inputEmail.addValue(randomStrings.getRandomString());
+		await ForgotPasswordPage.submitBtn.click();
+		await expect(ForgotPasswordPage.inputEmailError).toHaveText(resources.invalidEmailError);
+	});
+
+});
+
+describe('Востановление пароля', () => {
+
+	it('Востановление пароля по Email', async () => {
+		AllureReporter.addSeverity('critical');
+		await LoginPage.open();
+		await LoginPage.forgotPassword.click();
+		await ForgotPasswordPage.radioBtnEmail.click();
+		await ForgotPasswordPage.inputEmail.addValue(randomEmail);
+		await ForgotPasswordPage.submitBtn.click();
+		await expect(ForgotPasswordPage.modalSuccess).toBeDisplayed();
+		await expect(ForgotPasswordPage.modalSuccessByEmailText).toHaveText(resources.successModalFPByEmailText);
+	});
+
+	it('Востановление пароля по номеру телефона', async () => {
+		AllureReporter.addSeverity('blocker');
+		await ForgotPasswordPage.modalSuccessBtn.click();
+		await LoginPage.forgotPassword.click();
+		await ForgotPasswordPage.recoverPassbyTel(resources.validUserPhoneNum.slice(4), resources.otpCodeForPassRecoverByTel);
+		await expect(ForgotPasswordPage.recoverPassForm).toBeDisplayed();
+		await expect(ForgotPasswordPage.recoverPassFormTitle).toHaveText(resources.forgotPassFormTitle);
+	});
+
+	it('Ввод и подтверждение нового пароля', async () => {
+		AllureReporter.addSeverity('critical');
+		await ForgotPasswordPage.inputNewPassword.setValue(resources.validUserPassword);
+		await ForgotPasswordPage.inputNewPasswordConfirm.setValue(resources.validUserPassword);
+		await ForgotPasswordPage.submitBtn.click();
+		await expect(ForgotPasswordPage.modalSuccess).toBeDisplayed();
+		await expect(ForgotPasswordPage.modalSuccessByTelText).toHaveText(resources.successModalFPByTelText);
+	});
+
+	it('Возват на страницу регистрации', async () => {
+		await ForgotPasswordPage.modalSuccessBtn.click();
+		await expect(LoginPage.loginForm).toBeDisplayed();
+	});
 });
 

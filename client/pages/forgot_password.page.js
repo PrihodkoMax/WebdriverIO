@@ -19,6 +19,15 @@ class ForgotPasswordPage extends Page {
 	get inputOtpCode() { return $('input[name="code"]') };
 	get inputOtpCodeError() { return $('//*[@id="app"]/div[3]/div[2]/form/div[1]/p') };
 	get submitOtpCodeBtn() { return $('//*[@id="app"]/div[3]/div[2]/form/button') };
+	get modalSuccess() { return $('//*[@id="app"]/div[3]/div[2]') };
+	get modalSuccessBtn() { return $('//*[@id="app"]/div[3]/div[2]/button') };
+	get modalSuccessByEmailText() { return $('//*[@id="app"]/div[3]/div[2]/p') };
+	get modalSuccessByTelText() { return $('//*//*[@id="app"]/div[3]/div[2]/h3') };
+	get recoverPassForm() { return $('//*[@id="app"]/div[2]/div[2]/form') };
+	get recoverPassFormTitle() { return $('//*[@id="app"]/div[2]/div[2]/form/h3') };
+	get inputNewPassword() { return $('input[name="new_password"]') };
+	get inputNewPasswordConfirm() { return $('input[name="new_password_confirmation"]') };
+	get hintsPassword() { return $$('//*[@id="app"]/div[2]/div[2]/form/div[3]/div') };			// array of pssword hints
 
 	async recoverPassbyTel(tel, code) {
 		await this.inputTel.setValue(tel);
