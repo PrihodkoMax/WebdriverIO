@@ -25,7 +25,6 @@ export const config = {
 	specs: [
 		'./client/tests/**/*.js',
 		'./admin/tests/**/*.js'
-
 	],
 	// Patterns to exclude.
 	exclude: [
