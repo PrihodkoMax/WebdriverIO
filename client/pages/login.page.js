@@ -1,3 +1,4 @@
+
 import Page from './page.js';
 import axios from 'axios';
 class LoginPage extends Page {
