@@ -81,9 +81,7 @@ export const randomStrings = {
 	},
 };
 
-console.log(randomStrings.getRandomString());
-
-
+// console.log(randomStrings.getRandomString().slice(4));
 
 
 // // Генерирует один случайный номер из массива функций.
@@ -102,3 +100,28 @@ console.log(randomStrings.getRandomString());
 // /*--------------------------------------*/
 // export default getRandomUaPhoneNumber(); getRandomUsaPhoneNumber(); getRandomEngPhoneNumber(); getRandomNedPhoneNumber(); getRandomGerPhoneNumber();
 
+export const password = {
+	getRandomPassword: (secureLevel = 2) => {
+
+		// по дефолту длина пароля 8 символов
+		const numbers = '0123456789';
+		const symbols = '!\'"#$%&()*+,-./:;<=>?@[]^_`{|}~';
+		const characters = 'abcdefghijklmnopqrstuvwxyz';
+		const capitalCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		let pass = '';
+		for (let i = 0; i < 1; i++) {
+			pass += capitalCharacters.charAt(Math.floor(Math.random() * capitalCharacters.length));
+			for (let j = 0; j < 1; j++) {
+				pass += characters.charAt(Math.floor(Math.random() * characters.length));
+				for (let k = 0; k < secureLevel; k++) {
+					pass += symbols.charAt(Math.floor(Math.random() * symbols.length));
+					for (let l = 0; l < secureLevel; l++) {
+						pass += numbers.charAt(Math.floor(Math.random() * numbers.length));
+					}
+				}
+			}
+		}
+		return pass;
+	},
+}
+// console.log(getRandomPassword());
