@@ -12,4 +12,12 @@ export default {
 	invalidEmailError: 'Некорректный email',
 	successModalFPByEmailText: 'На указанную почту отправлено письмо со ссылкой на смену пароля',
 	successModalFPByTelText: 'Пароль успешно изменен.',
+	successModalSignUpText: 'Ваш аккаунт успешно создан!',
+
+	// Ошибки на странице регистрации
+	minLengthError6: 'Минимальная длина строки: 6',
+	minLengthError8: 'Минимальная длина строки: 8',
+	maxLengthError50: 'Максимальная длина строки: 50',
+	maxLengthError60: 'Максимальная длина строки: 60',
+	inputPassConfError: 'Пароли должны совпадать',
 }

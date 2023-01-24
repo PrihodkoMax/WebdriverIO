@@ -5,7 +5,7 @@ import { phoneNumbers, randomStrings } from '../../functions/helper.js';
 import randomEmail from '../../functions/getRandomEmail.js';
 import AllureReporter from '@wdio/allure-reporter';
 
-describe("*Элементы на странице Востановление пароля", () => {
+describe("Элементы на странице Востановление пароля", () => {
 
 	before(async () => {
 		await LoginPage.open();
@@ -58,7 +58,7 @@ describe("*Элементы на странице Востановление п�
 
 });
 
-describe('*Востановление пароля - негативные кейсы', () => {
+describe('Востановление пароля - негативные кейсы', () => {
 
 	before(async () => {
 		await LoginPage.open();

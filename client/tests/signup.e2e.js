@@ -1,28 +1,56 @@
+import getRandomEmail from "../../functions/getRandomEmail.js";
+import { password, phoneNumbers, randomStrings } from "../../functions/helper.js";
+import LoginPage from "../pages/login.page.js";
 import SignUpPage from "../pages/signup.page.js";
 import resources from "../resources/text.js";
 
-describe('Checking the presence of elements on the registration page', () => {
+describe('Элементы на странице регистрации', () => {
 
-	it('Displaying a form with the correct name', async () => {
+	it('Отображается форма регистрации с заголовком', async () => {
 		await SignUpPage.open();
-
 		await expect(SignUpPage.registerForm).toBeDisplayed();
-		const registerFormTitle = await $('form h3');
-		await expect(registerFormTitle).toHaveText(resources.signUpFormTitle);
+		await expect(SignUpPage.registerFormTitle).toHaveText(resources.signUpFormTitle);
 	});
 
-	it('Displaying five input fields', async () => {
+	it('Отображается 5 полей ввода', async () => {
 		const inputFields = await $$('form div.jss31');
 		await expect(inputFields).toBeElementsArrayOfSize(5);
 	});
 
-	it('Displaying disabled policy checkbox and ability to check it', async () => {
-		const policyCheckbox = await $('span[aria-disabled="false"]');
-		await expect(policyCheckbox).toBeDisplayed();
+	it('Отображается чек бокс политик', async () => {
+		await expect(SignUpPage.polisyCheckBox).toBeDisplayed();
+	});
 
-		await policyCheckbox.click();
-		await expect(policyCheckbox).toHaveElementClass('Mui-checked');
+	it('Чек бокс политик отмечается', async () => {
+		await SignUpPage.polisyCheckBox.click();
+		await expect(SignUpPage.polisyCheckBox).toHaveElementClass('Mui-checked');
 	});
 
 });
 
+describe('Регистрация нового пользователя', () => {
+
+	before(async () => {
+		await LoginPage.open();
+		await LoginPage.registerBtn.click();
+	})
+
+	it('Регистрации с валидными данными - до модалки ввода otp кода', async () => {
+		await SignUpPage.signUp(getRandomEmail, phoneNumbers.getRandomEngPhoneNumber(),
+			password.getRandomPassword(), password.getRandomPassword());
+		await expect(SignUpPage.codeEnterForm).toBeDisplayed();
+	});
+
+	it('Регистрации с валидными данными - ввод otp кода', async () => {
+		await SignUpPage.inputOtpCode.waitForDisplayed();
+		await SignUpPage.inputOtpCode.addValue(resources.otpCodeForPassRecoverByTel);
+		await SignUpPage.submitOtpCodeBtn.click();
+		await expect(SignUpPage.modalSuccess).toBeDisplayed();
+		await expect(SignUpPage.modalSuccessTitle).toHaveText(resources.successModalSignUpText);
+	});
+
+	it('Возврат на страницу регистрации', async () => {
+		await SignUpPage.modalSuccessBtn.click();
+		await expect(LoginPage.loginForm).toBeDisplayed();
+	});
+});
