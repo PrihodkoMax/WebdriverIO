@@ -29,6 +29,7 @@ class LoginPage extends Page {
 	get logoImageBtn() {
 		return $('a[href="/login"]');
 	}
+	get registerBtn() { return $('a[href="/register"]') }
 
 	async login(username, password) { // метод инкапсуляции кода автоматизации для взаимодействия со страницей
 		await this.inputUsername.setValue(username);
