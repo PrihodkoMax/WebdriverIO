@@ -12,19 +12,32 @@ class SignUpPage extends Page {
 	get inputRegisterPassword() { return $('input[name="password"]') }
 	get inputRegisterPasswordConfm() { return $('input[name="password_confirmation"]') }
 	get polisyLabel() { return $('input[name="agreeWithPrivacy"]') }
+	get polisyText() { return $('form label div ') }
 	get polisyCheckBox() { return $('span[aria-disabled="false"]') }
-	get linkAgreement() { return $('a*=sagreement') } // //*/a[contains(text(), "Пользовательским соглашением")]
-	get linkPolisy() { return $('a*=polisy') }		//  //*/a[contains(text(), "Политикой конфиденциальности")]
-	get passwordTextHints() { return $$('//*[@id="app"]/div[2]/div[2]/form/div[5]/div') }
-	get passwordHint() { return $('//*[@id="app"]/div[2]/div[2]/form/div[5]/div[5]/span/span') }
+	get linkAgreement() { return $('form a[href*="/sagreement"]') }
+	get linkPolisy() { return $('form a[href*="/policy"]') }
+	get passwordHints() { return $$('//*[@id="app"]/div[2]/div[2]/form/div[5]/div') }
+	get symbolsHintClassAdd() { return $('//*[@id="app"]/div[2]/div[2]/form/div[5]/div[5]/span') }
+	get specialSymbolsHint() { return $('form div div span span') }
 	get inputFieldErrors() { return $$('//*[@id="app"]/div[2]/div[2]/form/div[1]/p') }
 	get inputTelRequiredError() { return $('//*[@id="app"]/div[2]/div[2]/form/div[2]/span') }
 	get inputOtpCode() { return $('input[name="code"]') };
-	get inputOtpCodeError() { return $('//*[@id="app"]/div[3]/div[2]/form/div[1]/p') };
-	get submitOtpCodeBtn() { return $('//*[@id="app"]/div[3]/div[2]/form/button') };
-	get modalSuccess() { return $('//*[@id="app"]/div[3]/div[2]') };
-	get modalSuccessTitle() { return $('//*[@id="app"]/div[3]/div[2]/h3') };
-	get modalSuccessBtn() { return $('//*[@id="app"]/div[3]/div[2]/button') };
+	get inputOtpCodeError() { return $('//*[@id="app"]/div[3]/div[2]/form/div[1]/p') }
+	get submitOtpCodeBtn() { return $('//*[@id="app"]/div[3]/div[2]/form/button') }
+	get modalSuccess() { return $('//*[@id="app"]/div[3]/div[2]') }
+	get modalSuccessTitle() { return $('//*[@id="app"]/div[3]/div[2]/h3') }
+	get modalSuccessBtn() { return $('//*[@id="app"]/div[3]/div[2]/button') }
+	get showPassEye() { return $('//*[@id="app"]/div[2]/div[2]/form/div[4]/div/div') }
+	get showPassConfrmEye() { return $('//*[@id="app"]/div[2]/div[2]/form/div[5]/div/div') }
+	get enterBtn() { return $('body a button') }
+	get inputEmailPlcHld() { return $('//form/div[1]/label') }
+	get inputTelPlcHld() { return $('div.special-label') }
+	get inputLoginPlcHld() { return $('//form/div[3]/label') }
+	get inputPassPlcHld() { return $('//form/div[4]/label') }
+	get inputPassConfrmPlcHld() { return $('//form/div[5]/label') }
+	get ariaLocalization() { return $('//*[@id="mui-component-select-select"]') }
+	get ariaCountryCodeTel() { return $('div.selected-flag') }
+	get countryCodeItemTurey() { return $('li[data-flag-key="flag_no_194"]') }
 
 	async signUp(email, tel, username, password) {
 		await this.inputRegisterEmail.setValue(email);
