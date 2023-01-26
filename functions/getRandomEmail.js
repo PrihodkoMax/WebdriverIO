@@ -1,5 +1,5 @@
 
-const domain = ["google.com", "meta.ua", "icloud.com", "yandex.ru"];
+const domain = ["google.com", "meta.ua", "icloud.com", "domain.com", "qatest.ua"];
 const symbols = "qwertyuiopasdfghjklzxcvbnm1234567890";
 
 function getRandomInt(min, max) {
@@ -17,6 +17,6 @@ function getRandomEmail() {
 	const randdomain = getRandomString(getRandomInt(3, 5));
 	return `${username}.${randdomain}@${domain[getRandomInt(0, domain.length - 1)]}`;
 }
-//console.log(getRandomEmail())
+// console.log(getRandomEmail())
 export default getRandomEmail();
 
