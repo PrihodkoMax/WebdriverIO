@@ -2,6 +2,7 @@ export default {
 
 	// Titles
 	signUpFormTitle: 'Начните использование FuncWallet',
+	signUpFormTitleEN: 'Start using FuncWallet',
 	signInFormTitle: 'Войти',
 	forgotPassFormTitle: 'Восстановление пароля',
 	successModalFPByEmailText: 'На указанную почту отправлено письмо со ссылкой на смену пароля',
@@ -9,15 +10,21 @@ export default {
 	successModalSignUpText: 'Ваш аккаунт успешно создан!',
 	linkAgreementText: 'Пользовательским соглашением',
 	linkPolicyText: 'Политикой конфиденциальности',
+	langArray: 'UA,RU,EN',
 
 	// Codes
 	otpCodeForPassRecoverByTel: 111111,
 	pinCode: 1111,
 
-	// Fieald Errors
+	// Field Errors
 	requiredFieldError: 'Поле обязательно к заполнению',
 	invalidLengthCodeError: 'Длина строки должна быть: 6',
+	invalidPhoneNumError: 'Неправильный Номер Телефона',
+	existPhoneNumError: 'Номер Телефона уже существует',
 	invalidEmailError: 'Некорректный email',
+	invalidEmailErrorBE: 'E-Mail должен быть кореектным',
+	existEmailError: 'E-Mail уже существует',
+	existUsernameError: 'Имя Пользователя уже существует',
 	invalidCodeError: 'Невалидный код',
 	minLengthError6: 'Минимальная длина строки: 6',
 	minLengthError8: 'Минимальная длина строки: 8',

@@ -56,12 +56,13 @@ export const phoneNumbers = {
 };
 // console.log(phoneNumbers.getRandomPhoneNumber());
 
+/************************************************************************/
 
 export const randomStrings = {
 
 	// Метод возвращает рандомно сгенерированную строку с указанной длинной, по дефолту 8 символов
 	getRandomString: (length = 8) => {
-		const symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\'"#$%&()*+,-./:;<=>?@[\\]^_`{|}~';
+		const symbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\'"#%&()*+,-./:;<=>?[\\]^_`{|}~'; // $@ 
 		let str = '';
 		for (let i = 0; i < length; i++) {
 			str += symbols.charAt(Math.floor(Math.random() * symbols.length));
@@ -92,8 +93,9 @@ export const randomStrings = {
 	},
 
 };
-// console.log(randomStrings.getRandomString().slice(4));
+// console.log(randomStrings.getRandomString(6));
 
+/************************************************************************/
 
 export const passwords = {
 	/*
@@ -124,7 +126,26 @@ export const passwords = {
 		}
 		return pass;
 	},
-	/************************************************************************/
 
 }
-// console.log(password.getRandomPassword());
+// console.log(passwords.getRandomPassword(8));
+
+/************************************************************************/
+
+export const emails = {
+	domains: ["codec.ro", "meta.ua", "icloud.com", "domain.com", "comic.com", "cww.de", "0-mail.com", "020.co.uk", "adam.com.au", "ados.fr", "test.edu", "ahaa.dk", "ahk.jp", "alive.cz", "amuro.net", "anote.com", "aol.de", "aol.fr", "aol.it", "aol.jp", "aon.at", "ausi.com", "bboy.com", "beer.com", "big1.us", "blader.com", "boom.com", "box.ua", "btcc.org", "bund.us", "cantv.net", "cek.pm", "cgac.es", "citiz.net", "clerk.com", "cox.com", "ddns.org"],
+
+	symbols: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+
+	getRandomEmail(length = 20) {
+		let res = '', dom = '';
+		for (let i = 0; i < length; i++) {
+			res += this.symbols[Math.floor(Math.random() * this.symbols.length)];
+		}
+		dom = this.domains[Math.floor(Math.random() * this.domains.length)];
+		return `${res}@${dom}`;
+	}
+}
+// console.log(emails.getRandomEmail());
+
+/************************************************************************/

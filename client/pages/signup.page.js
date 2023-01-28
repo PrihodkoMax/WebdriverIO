@@ -19,7 +19,7 @@ class SignUpPage extends Page {
 	get passwordHints() { return $$('//*[@id="app"]/div[2]/div[2]/form/div[5]/div') }
 	get symbolsHintClassAdd() { return $('//*[@id="app"]/div[2]/div[2]/form/div[5]/div[5]/span') }
 	get specialSymbolsHint() { return $('form div div span span') }
-	get inputFieldErrors() { return $$('//*[@id="app"]/div[2]/div[2]/form/div[1]/p') }
+	get inputFieldErrors() { return $$('//*[@id="app"]/div[2]/div[2]/form/div/p') }
 	get inputTelRequiredError() { return $('//*[@id="app"]/div[2]/div[2]/form/div[2]/span') }
 	get inputOtpCode() { return $('input[name="code"]') };
 	get inputOtpCodeError() { return $('//*[@id="app"]/div[3]/div[2]/form/div[1]/p') }
@@ -36,6 +36,8 @@ class SignUpPage extends Page {
 	get inputPassPlcHld() { return $('//form/div[4]/label') }
 	get inputPassConfrmPlcHld() { return $('//form/div[5]/label') }
 	get ariaLocalization() { return $('//*[@id="mui-component-select-select"]') }
+	get listLocal() { return $('ul[role="listbox"]') }
+	get listItemsLocal() { return $$('li[role="option"]') }
 	get ariaCountryCodeTel() { return $('div.selected-flag') }
 	get countryCodeItemTurey() { return $('li[data-flag-key="flag_no_194"]') }
 
