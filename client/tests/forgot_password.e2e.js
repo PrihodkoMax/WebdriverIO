@@ -1,8 +1,7 @@
 import LoginPage from '../pages/login.page.js';
 import ForgotPasswordPage from '../pages/forgot_password.page.js';
 import resources from '../resources/text.js';
-import { phoneNumbers, randomStrings } from '../../functions/helper.js';
-import randomEmail from '../../functions/getRandomEmail.js';
+import { emails, phoneNumbers, randomStrings } from '../../functions/helper.js';
 import AllureReporter from '@wdio/allure-reporter';
 
 describe("Элементы на странице Востановление пароля", () => {
@@ -108,14 +107,14 @@ describe('Востановление пароля', () => {
 		await LoginPage.open();
 		await LoginPage.forgotPassword.click();
 		await ForgotPasswordPage.radioBtnEmail.click();
-		await ForgotPasswordPage.inputEmail.addValue(randomEmail);
+		await ForgotPasswordPage.inputEmail.addValue(emails.getRandomEmail());
 		await ForgotPasswordPage.submitBtn.click();
 		await expect(ForgotPasswordPage.modalSuccess).toBeDisplayed();
 		await expect(ForgotPasswordPage.modalSuccessByEmailText).toHaveText(resources.successModalFPByEmailText);
 	});
 
 	it('Востановление пароля по номеру телефона', async () => {
-		AllureReporter.addSeverity('blocker');
+		AllureReporter.addSeverity('critical');
 		await ForgotPasswordPage.modalSuccessBtn.click();
 		await LoginPage.forgotPassword.click();
 		await ForgotPasswordPage.recoverPassbyTel(resources.validUserPhoneNum.slice(4), resources.otpCodeForPassRecoverByTel);
