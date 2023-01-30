@@ -1,7 +1,7 @@
 import LoginPage from '../pages/login.page.js';
 import ForgotPasswordPage from '../pages/forgot_password.page.js';
 import resources from '../resources/text.js';
-import { emails, phoneNumbers, randomStrings } from '../../functions/helper.js';
+import { randoms } from '../../functions/randomData.js';
 import AllureReporter from '@wdio/allure-reporter';
 
 describe("Элементы на странице Востановление пароля", () => {
@@ -65,7 +65,7 @@ describe('Востановление пароля - негативные кей�
 	})
 
 	it('Отображение ошибки после ввода кода (не валидный номер пользователя)', async () => {
-		await ForgotPasswordPage.recoverPassbyTel(phoneNumbers.getRandomUaPhoneNumber().slice(4), resources.otpCodeForPassRecoverByTel);
+		await ForgotPasswordPage.recoverPassbyTel(randoms.getRandomUaPhoneNumber().slice(4), resources.otpCodeForPassRecoverByTel);
 		await expect(ForgotPasswordPage.inputOtpCodeError).toBeDisplayed();
 		await expect(ForgotPasswordPage.inputOtpCodeError).toHaveText(resources.invalidCodeError);
 	});
@@ -80,7 +80,7 @@ describe('Востановление пароля - негативные кей�
 	it('Отображение ошибки после ввода кода < 6 символов', async () => {
 		await ForgotPasswordPage.closeCodeEnterFormBtn.click();
 		await ForgotPasswordPage.submitBtn.click();
-		await ForgotPasswordPage.inputOtpCode.addValue(phoneNumbers.getRandomUaPhoneNumber().slice(8));
+		await ForgotPasswordPage.inputOtpCode.addValue(randoms.getRandomUaPhoneNumber().slice(8));
 		await ForgotPasswordPage.submitOtpCodeBtn.click();
 		await expect(ForgotPasswordPage.inputOtpCodeError).toHaveText(resources.invalidLengthCodeError);
 	});
@@ -93,7 +93,7 @@ describe('Востановление пароля - негативные кей�
 	});
 
 	it('Отображение ошибки после ввода не валидного email', async () => {
-		await ForgotPasswordPage.inputEmail.addValue(randomStrings.getRandomString());
+		await ForgotPasswordPage.inputEmail.addValue(randoms.getRandomString());
 		await ForgotPasswordPage.submitBtn.click();
 		await expect(ForgotPasswordPage.inputEmailError).toHaveText(resources.invalidEmailError);
 	});
@@ -107,7 +107,7 @@ describe('Востановление пароля', () => {
 		await LoginPage.open();
 		await LoginPage.forgotPassword.click();
 		await ForgotPasswordPage.radioBtnEmail.click();
-		await ForgotPasswordPage.inputEmail.addValue(emails.getRandomEmail());
+		await ForgotPasswordPage.inputEmail.addValue(randoms.getRandomEmail());
 		await ForgotPasswordPage.submitBtn.click();
 		await expect(ForgotPasswordPage.modalSuccess).toBeDisplayed();
 		await expect(ForgotPasswordPage.modalSuccessByEmailText).toHaveText(resources.successModalFPByEmailText);
