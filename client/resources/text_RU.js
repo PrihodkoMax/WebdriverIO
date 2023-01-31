@@ -1,8 +1,7 @@
-export default {
+export const text_RU = {
 
 	// Titles
 	signUpFormTitle: 'Начните использование FuncWallet',
-	signUpFormTitleEN: 'Start using FuncWallet',
 	signInFormTitle: 'Войти',
 	forgotPassFormTitle: 'Восстановление пароля',
 	successModalFPByEmailText: 'На указанную почту отправлено письмо со ссылкой на смену пароля',
@@ -16,21 +15,24 @@ export default {
 	otpCodeForPassRecoverByTel: 111111,
 	pinCode: 1111,
 
-	// Field Errors
+	// Field Errors - Front
 	requiredFieldError: 'Поле обязательно к заполнению',
-	invalidLengthCodeError: 'Длина строки должна быть: 6',
-	invalidPhoneNumError: 'Неправильный Номер Телефона',
-	existPhoneNumError: 'Номер Телефона уже существует',
 	invalidEmailError: 'Некорректный email',
-	invalidEmailErrorBE: 'E-Mail должен быть кореектным',
-	existEmailError: 'E-Mail уже существует',
-	existUsernameError: 'Имя Пользователя уже существует',
-	invalidCodeError: 'Невалидный код',
 	minLengthError6: 'Минимальная длина строки: 6',
 	minLengthError8: 'Минимальная длина строки: 8',
 	maxLengthError50: 'Максимальная длина строки: 50',
 	maxLengthError60: 'Максимальная длина строки: 60',
 	inputPassConfError: 'Пароли должны совпадать',
+
+	// Field Errors - Back
+	invalidLengthCodeError: 'Длина строки должна быть: 6',
+	invalidPhoneNumError: 'Неправильный Номер Телефона',
+	existPhoneNumError: 'Номер Телефона уже существует',
+	invalidEmailErrorBE: 'E-Mail должен быть кореектным',
+	existEmailError: 'E-Mail уже существует',
+	existUsernameError: 'Имя Пользователя уже существует',
+	invalidCodeError: 'Невалидный код',
+
 
 	// User Credentials
 	validUserPhoneNum: '+380444817473',						// Maksym QA
@@ -42,5 +44,5 @@ export default {
 	inputRegTelPlcHld: 'Телефон*',
 	inputRegLoginPlcHld: 'Логин*',
 	inputRegPassPlcHld: 'Пароль*',
-	inputRegPassConfrmPlcHld: 'Повторите пароль*'
+	inputRegPassConfrmPlcHld: 'Повторите пароль*',
 }

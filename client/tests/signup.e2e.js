@@ -1,7 +1,8 @@
 import { randoms } from "../../functions/randomData.js";
 import LoginPage from "../pages/login.page.js";
 import SignUpPage from "../pages/signup.page.js";
-import resources from "../resources/text.js";
+import { text_RU } from '../resources/text_RU.js';
+import { text_EN } from '../resources/text_EN.js';
 import { expect as expectChai } from "chai";
 import AllureReporter from '@wdio/allure-reporter';
 
@@ -10,15 +11,15 @@ describe('Элементы на странице регистрации', () => 
 	it('Отображается форма регистрации с заголовком', async () => {
 		await SignUpPage.open();
 		await expect(SignUpPage.registerForm).toBeDisplayed();
-		await expect(SignUpPage.registerFormTitle).toHaveText(resources.signUpFormTitle);
+		await expect(SignUpPage.registerFormTitle).toHaveText(text_RU.signUpFormTitle);
 	});
 
 	it('Названия плейсхолдеров', async () => {
-		await expect(SignUpPage.inputEmailPlcHld).toHaveText(resources.inputRegEmailPlcHld);
-		await expect(SignUpPage.inputTelPlcHld).toHaveText(resources.inputRegTelPlcHld);
-		await expect(SignUpPage.inputLoginPlcHld).toHaveText(resources.inputRegLoginPlcHld);
-		await expect(SignUpPage.inputPassPlcHld).toHaveText(resources.inputRegPassPlcHld);
-		await expect(SignUpPage.inputPassConfrmPlcHld).toHaveText(resources.inputRegPassConfrmPlcHld);
+		await expect(SignUpPage.inputEmailPlcHld).toHaveText(text_RU.inputRegEmailPlcHld);
+		await expect(SignUpPage.inputTelPlcHld).toHaveText(text_RU.inputRegTelPlcHld);
+		await expect(SignUpPage.inputLoginPlcHld).toHaveText(text_RU.inputRegLoginPlcHld);
+		await expect(SignUpPage.inputPassPlcHld).toHaveText(text_RU.inputRegPassPlcHld);
+		await expect(SignUpPage.inputPassConfrmPlcHld).toHaveText(text_RU.inputRegPassConfrmPlcHld);
 	});
 
 	it('Кнопка выбора языка и значение по умолчанию', async () => {
@@ -61,9 +62,9 @@ describe('Элементы на странице регистрации', () => 
 		await SignUpPage.open();
 		await expect(SignUpPage.linkPolisy).toHaveAttr('href', 'https://funcwallet.com/ru/policy');
 		await expect(SignUpPage.linkPolisy).toHaveAttr('target', '_blank');
-		await expect(SignUpPage.linkPolisy).toHaveText(resources.linkPolicyText);
+		await expect(SignUpPage.linkPolisy).toHaveText(text_RU.linkPolicyText);
 		await expect(SignUpPage.linkAgreement).toHaveAttr('href', 'https://funcwallet.com/ru/sagreement');
-		await expect(SignUpPage.linkAgreement).toHaveText(resources.linkAgreementText);
+		await expect(SignUpPage.linkAgreement).toHaveText(text_RU.linkAgreementText);
 		await expect(SignUpPage.linkAgreement).toHaveAttr('target', '_blank');
 	});
 
@@ -88,12 +89,12 @@ describe('Элементы на странице регистрации', () => 
 		for (let item of arr) {
 			newArr.push(await item.getComputedLabel())
 		}
-		expectChai(newArr.toString()).to.equal(resources.langArray);
+		expectChai(newArr.toString()).to.equal(text_RU.langArray);
 	});
 
 	it('Возможность сменить язык', async () => {
 		await SignUpPage.listItemsLocal[2].click();
-		await expect(SignUpPage.registerFormTitle).toHaveText(resources.signUpFormTitleEN);
+		await expect(SignUpPage.registerFormTitle).toHaveText(text_EN.signUpFormTitle);
 		await SignUpPage.listItemsLocal[1].click();
 	});
 
@@ -128,60 +129,60 @@ describe('Регистрация пользователя - негативные
 	it('Регистрация с не валидным Email', async () => {
 		await SignUpPage.signUp('t@t.te', randoms.getRandomEngPhoneNumber(),
 			randoms.getRandomString(), randoms.getRandomPassword());
-		await expect(SignUpPage.inputFieldErrors).toHaveText(resources.invalidEmailErrorBE);
+		await expect(SignUpPage.inputFieldErrors).toHaveText(text_RU.invalidEmailErrorBE);
 	});
 
 	it('Регистрация с уже существующим Email', async () => {
 		AllureReporter.addSeverity('critical');
-		await SignUpPage.signUp(resources.validUserEmail, randoms.getRandomEngPhoneNumber(),
+		await SignUpPage.signUp(text_RU.validUserEmail, randoms.getRandomEngPhoneNumber(),
 			randoms.getRandomString(), randoms.getRandomPassword());
-		await expect(SignUpPage.inputFieldErrors).toHaveText(resources.existEmailError);
+		await expect(SignUpPage.inputFieldErrors).toHaveText(text_RU.existEmailError);
 	});
 
 	it('Регистрация с не валидным телефоном', async () => {
 		await SignUpPage.signUp(randoms.getRandomEmail(), randoms.getRandomUsaPhoneNumber(),
 			randoms.getRandomString(), randoms.getRandomPassword());
-		await expect(SignUpPage.inputTelRequiredError).toHaveText(resources.invalidPhoneNumError);
+		await expect(SignUpPage.inputTelRequiredError).toHaveText(text_RU.invalidPhoneNumError);
 	});
 
 	it('Регистрация с уже существующим телефоном', async () => {
 		AllureReporter.addSeverity('critical');
-		await SignUpPage.signUp(randoms.getRandomEmail(), resources.validUserPhoneNum.slice(4),
+		await SignUpPage.signUp(randoms.getRandomEmail(), text_RU.validUserPhoneNum.slice(4),
 			randoms.getRandomString(), randoms.getRandomPassword());
-		await expect(SignUpPage.inputTelRequiredError).toHaveText(resources.existPhoneNumError);
+		await expect(SignUpPage.inputTelRequiredError).toHaveText(text_RU.existPhoneNumError);
 	});
 
 	it('Регистрация с уже существующим именем пользователя', async () => {
 		AllureReporter.addSeverity('critical');
 		await SignUpPage.signUp(randoms.getRandomEmail(), randoms.getRandomEngPhoneNumber(),
 			'Maksym QA', randoms.getRandomPassword());
-		await expect(SignUpPage.inputFieldErrors).toHaveText(resources.existUsernameError);
+		await expect(SignUpPage.inputFieldErrors).toHaveText(text_RU.existUsernameError);
 	});
 
 	it('Регистрация - имя пользователя < минимального значения', async () => {
 		await SignUpPage.signUp(randoms.getRandomEmail(), randoms.getRandomEngPhoneNumber(),
 			randoms.getRandomString(5), randoms.getRandomPassword());
-		await expect(SignUpPage.inputFieldErrors).toHaveText(resources.minLengthError6);
+		await expect(SignUpPage.inputFieldErrors).toHaveText(text_RU.minLengthError6);
 	});
 
 	it('Регистрация - имя пользователя > максимального значения', async () => {
 		await SignUpPage.signUp(randoms.getRandomEmail(), randoms.getRandomEngPhoneNumber(),
 			randoms.getRandomString(51), randoms.getRandomPassword());
-		await expect(SignUpPage.inputFieldErrors).toHaveText(resources.maxLengthError50);
+		await expect(SignUpPage.inputFieldErrors).toHaveText(text_RU.maxLengthError50);
 	});
 
 	it('Регистрация - пароль < минимального значения', async () => {
 		await SignUpPage.signUp(randoms.getRandomEmail(), randoms.getRandomEngPhoneNumber(),
 			randoms.getRandomString(), randoms.getRandomPassword(1));
-		await expect(SignUpPage.inputFieldErrors[0]).toHaveText(resources.minLengthError8);
-		await expect(SignUpPage.inputFieldErrors[1]).toHaveText(resources.minLengthError8);
+		await expect(SignUpPage.inputFieldErrors[0]).toHaveText(text_RU.minLengthError8);
+		await expect(SignUpPage.inputFieldErrors[1]).toHaveText(text_RU.minLengthError8);
 	});
 
 	it('Регистрация - пароль > максимального значения', async () => {
 		await SignUpPage.signUp(randoms.getRandomEmail(), randoms.getRandomEngPhoneNumber(),
 			randoms.getRandomString(), randoms.getRandomPassword(8));
-		await expect(SignUpPage.inputFieldErrors[0]).toHaveText(resources.maxLengthError60);
-		await expect(SignUpPage.inputFieldErrors[1]).toHaveText(resources.maxLengthError60);
+		await expect(SignUpPage.inputFieldErrors[0]).toHaveText(text_RU.maxLengthError60);
+		await expect(SignUpPage.inputFieldErrors[1]).toHaveText(text_RU.maxLengthError60);
 	});
 
 	it('Регистрация - пароли не совпадают', async () => {
@@ -192,7 +193,7 @@ describe('Регистрация пользователя - негативные
 		await SignUpPage.inputRegisterPasswordConfm.setValue(randoms.getRandomPassword());
 		await SignUpPage.polisyLabel.click();
 		await SignUpPage.submitRegisterBtn.click();
-		await expect(SignUpPage.inputFieldErrors).toHaveText(resources.inputPassConfError);
+		await expect(SignUpPage.inputFieldErrors).toHaveText(text_RU.inputPassConfError);
 	});
 });
 
@@ -213,10 +214,10 @@ xdescribe('Регистрация нового пользователя', () => 
 	it('Регистрации с валидными данными - ввод otp кода', async () => {
 		AllureReporter.addSeverity('blocker');
 		await SignUpPage.inputOtpCode.waitForDisplayed();
-		await SignUpPage.inputOtpCode.addValue(resources.otpCodeForPassRecoverByTel);
+		await SignUpPage.inputOtpCode.addValue(text_RU.otpCodeForPassRecoverByTel);
 		await SignUpPage.submitOtpCodeBtn.click();
 		await expect(SignUpPage.modalSuccess).toBeDisplayed();
-		await expect(SignUpPage.modalSuccessTitle).toHaveText(resources.successModalSignUpText);
+		await expect(SignUpPage.modalSuccessTitle).toHaveText(text_RU.successModalSignUpText);
 	});
 
 	it('Возврат на страницу регистрации', async () => {
